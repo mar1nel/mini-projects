@@ -3,9 +3,25 @@ import '../App.css';
 
 function ComponentTwo() {
 
+    const [open, setOpen] = React.useState(false);
 
     return(
-        <div>salut</div>
+        <>
+            <br />
+            <button className="open-modal" onClick={() => setOpen(!open)}>
+                Open &gt;w&lt;
+            </button>
+            {
+                open && (
+                    <div className="overlay">
+                        <div className="modal">
+                            <img src="https://media.tenor.com/2-VH7ZH6rxQAAAAC/cat-tongue.gif" alt="gif"
+                                 style={{ width: '300px', height: '300px' }} />
+                        </div>
+                    </div>
+                )
+            }
+        </>
     );
 }
 

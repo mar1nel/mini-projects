@@ -15,7 +15,7 @@ function ComponentOne() {
         console.log(count);
     }
 
-    if (count == 21 || count == -21){
+    if (count === 21 || count === -21){
         setCount(0);
     }
 
