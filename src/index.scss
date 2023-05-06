@@ -4,14 +4,14 @@
 }
 
 .App {
+  position: relative;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   height: 100vh;
   text-align: center;
   flex-direction: row;
 
-  /* add the following properties */
   .buttons-container {
     display: flex;
     flex-direction: row;
@@ -20,8 +20,7 @@
   h1 {
     color: #000;
     font-size: 7rem;
-    margin: 0;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
 
     &.plus {
       color: #2a9d8f;
@@ -90,14 +89,55 @@
 
   }
 
-  .component-one {
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: black;
+  }
 
+  .close-button:hover{
+    /*rotate: 50deg;*/
+    transition-duration: 0.5s;
+    transition: ease-in-out;
+    font-size: 28px;
+
+    animation-name: bounce;
+    animation-timing-function: ease;
+
+    @keyframes bounce {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-50px); }
+      100% { transform: translateY(0); }
+    }
+
+  }
+
+
+  .component-one {
+    justify-content: center;
+    top: 200px;
+    position:absolute;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+
+  }
+
+  .place-me-center{
+    justify-content: center;
+    position: absolute;
   }
 
   .open-modal {
+    position: relative;
+    top: 200px;
+    flex-direction: row;
+    /*justify-content: center;*/
     background: #fff;
     padding: 18px 25px;
     border-radius: 20px;

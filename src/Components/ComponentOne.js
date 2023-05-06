@@ -3,7 +3,6 @@ import '../App.css';
 
 function ComponentOne() {
 
-    //let count = 0;
     const [count, setCount]= React.useState(0);
 
     const onClickPlus = () => {

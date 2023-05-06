@@ -4,21 +4,21 @@ import axios from 'axios';
 function ComponentTwo() {
     const [gifUrl, setGifUrl] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
 
-    const fetchRandomGif = async () => {
+    const fetchRandomGif = async (tag) => {
         setIsLoading(true);
         try {
             const { data } = await axios.get('https://api.giphy.com/v1/gifs/random', {
                 params: {
                     api_key: 'zkuzymN4PC3Z5ZLHVNsKtRpZx4e4R4bA',
-                    tag: 'cat',
+                    tag: tag,
                     rating: 'r',
                 },
             });
             setGifUrl(data.data.images.original.url);
         } catch (error) {
-            setErrorMessage('Failed');
+            console.error(error);
+            setGifUrl('');
         }
         setIsLoading(false);
     };
@@ -27,26 +27,27 @@ function ComponentTwo() {
         setGifUrl('');
     };
 
-    useEffect(() => {
-        fetchRandomGif();
-    }, []);
-
     return (
         <>
-            <br />
-            <button className="open-modal" onClick={fetchRandomGif}>
-                {isLoading ? 'Loading...' : 'Open >w<'}
-            </button>
-            {errorMessage && <div>{errorMessage}</div>}
+            <div className="place-me-center">
+                <button className="open-modal" onClick={() => fetchRandomGif('cat')}>
+                    {isLoading ? 'Loading...' : 'Open 🐱'}
+                </button>
+                <button className="open-modal" onClick={() => fetchRandomGif('dog')}>
+                    {isLoading ? 'Loading...' : 'Open 🐶'}
+                </button>
+                <button className="open-modal" onClick={() => fetchRandomGif('random')}>
+                    {isLoading ? 'Loading...' : 'Open ❓'}
+                </button>
+            </div>
+
             {gifUrl && (
                 <div className="overlay">
                     <div className="modal">
-                        <button onClick={handleClose}>X</button>
-                        <img
-                            src={gifUrl}
-                            alt="Random gif"
-                            style={{ width: '300px', height: '300px' }}
-                        />
+                        <button className="close-button" onClick={handleClose}>
+                            X
+                        </button>
+                        <img src={gifUrl} alt="Random gif" style={{ width: '300px', height: '300px' }} />
                     </div>
                 </div>
             )}
