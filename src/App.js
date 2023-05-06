@@ -1,37 +1,41 @@
-import logo from './logo.svg';
 import React from 'react';
 import './App.css';
+import ComponentOne from './Components/ComponentOne';
+import ComponentTwo from './Components/ComponentTwo';
 
 function App() {
 
-    //let count = 0;
-    const [count, setCount]= React.useState(0);
+    const [showComponentOne, setShowComponentOne] = React.useState(false);
+    const [showComponentTwo, setShowComponentTwo] = React.useState(false);
+    const [currentComponent, setCurrentComponent] = React.useState(null);
 
-    const onClickPlus = () => {
-        setCount(count + 1);
-        console.log(count);
-    }
-    const onClickMinus = () => {
-        setCount(count - 1);
-        console.log(count);
+    const handleButtonClick = (component) => {
+        setShowComponentOne(component === 'componentOne');
+        setShowComponentTwo(component === 'componentTwo');
+        setCurrentComponent(component);
     }
 
-    if (count == 21 || count == -21){
-        setCount(0);
+    const handleHideClick = () => {
+        setShowComponentOne(false);
+        setShowComponentTwo(false);
+        setCurrentComponent(null);
     }
 
-  return (
-    <div className="App">
+    return (
+        <div className="App">
 
-      <div>
-        <h2>Learn to count to 20:</h2>
-        <h1>{count}</h1>
-        <button onClick={onClickMinus} className="minus">- Minus</button>
-        <button onClick={onClickPlus} className="plus">+ Plus</button>
-      </div>
+            <button onClick={() => handleButtonClick('componentOne')}>Mini Project One</button>
+            <button onClick={() => handleButtonClick('componentTwo')}>Mini Project Two</button>
+            {/*<button onClick={() => setShowComponentThree(true)}>Mini Project Three</button>
+          <button onClick={() => setShowComponentFour(true)}>Mini Project Four</button>*/}
 
-    </div>
-  );
+            {currentComponent && <button onClick={handleHideClick}>Hide Current Component</button>}
+
+            {showComponentOne && <ComponentOne/>}
+            {showComponentTwo && <ComponentTwo/>}
+
+        </div>
+    );
 }
 
 export default App;
