@@ -24,14 +24,19 @@ function App() {
     return (
         <div className="App">
 
-            <button onClick={() => handleButtonClick('componentOne')}>Mini Project One</button>
-            <button onClick={() => handleButtonClick('componentTwo')}>Mini Project Two</button>
+            <button className="button-common" onClick={() => handleButtonClick('componentOne')}>Mini Project One</button>
+            <button className="button-common" onClick={() => handleButtonClick('componentTwo')}>Mini Project Two</button>
             {/*<button onClick={() => setShowComponentThree(true)}>Mini Project Three</button>
           <button onClick={() => setShowComponentFour(true)}>Mini Project Four</button>*/}
 
-            {currentComponent && <button onClick={handleHideClick}>Hide Current Component</button>}
+            {currentComponent &&
+                <button className="button-hide" onClick={handleHideClick}>
+                    Hide Current Component
+                </button>}
 
+            <div className="component-one">
             {showComponentOne && <ComponentOne/>}
+            </div>
             {showComponentTwo && <ComponentTwo/>}
 
         </div>

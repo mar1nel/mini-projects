@@ -25,8 +25,11 @@ function ComponentOne() {
             <div>
                 <h2>Learn to count to 20:</h2>
                 <h1>{count}</h1>
-                <button onClick={onClickMinus} className="minus">- Minus</button>
-                <button onClick={onClickPlus} className="plus">+ Plus</button>
+                <div className="buttons-container">
+                    <button onClick={onClickMinus} className="minus">- Minus</button>
+                    <button onClick={onClickPlus} className="plus">+ Plus</button>
+                </div>
+
             </div>
 
         </div>

@@ -1,9 +1,5 @@
-body {
-  margin: 0;
+* {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #edf6f9;
 }
 
 .App {
@@ -12,6 +8,12 @@ body {
   justify-content: center;
   height: 100vh;
   text-align: center;
+  flex-direction: row;
+  /* add the following properties */
+}
+.App .buttons-container {
+  display: flex;
+  flex-direction: row;
 }
 .App h1 {
   color: #000;
@@ -41,13 +43,27 @@ body {
   margin: 0 10px;
   transition: all 0.05s ease-in-out;
 }
+.App button.button-hide {
+  background-color: #c470de;
+  color: #fff;
+  box-shadow: 0 4px 0 #9741af;
+  border: 1px solid #a447d5;
+}
+.App button.button-common {
+  background-color: #d5757b;
+  color: #fff;
+  box-shadow: 0 4px 0 #ae5259;
+  border: 1px solid #f35765;
+}
 .App button.minus {
+  display: flex;
   background-color: #e63946;
   color: #fff;
   box-shadow: 0 4px 0 #d21a28;
   border: 1px solid #bb1824;
 }
 .App button.plus {
+  display: flex;
   background-color: #2a9d8f;
   color: #fff;
   box-shadow: 0 4px 0 #1f756a;
@@ -59,6 +75,81 @@ body {
 .App button:active {
   transform: translateY(2px);
   box-shadow: none;
+}
+.App .component-one {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.App .open-modal {
+  background: #fff;
+  padding: 18px 25px;
+  border-radius: 20px;
+  font-weight: 500;
+  border: 0;
+  outline: none;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 23px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease-in-out;
+}
+.App .open-modal:hover {
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+.App .open-modal:active {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+}
+.App .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease-in-out;
+}
+.App .modal {
+  background-color: #fff;
+  width: 70%;
+  max-width: 500px;
+  max-height: 300px;
+  padding: 40px 30px;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out;
+}
+.App .modal img {
+  border-radius: 5px;
+  width: 100%;
+}
+.App .modal img:hover {
+  opacity: 1;
+}
+.App .overlay.animated {
+  opacity: 0;
+  visibility: hidden;
+}
+.App .overlay.animated .modal {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -30%);
+  transition-delay: 0.2s;
+}
+.App .overlay.animated.show {
+  opacity: 1;
+  visibility: visible;
+}
+.App .overlay.animated.show .modal {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=index.css.map */
