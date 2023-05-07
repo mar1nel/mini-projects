@@ -3,18 +3,21 @@ import './App.css';
 import ComponentOne from './Components/ComponentOne';
 import ComponentTwo from './Components/ComponentTwo';
 import ComponentThree from './Components/ComponentThree';
+/*import ComponentFour from "./Components/ComponentFour";
+import ComponentFive from "./Components/ComponentFive";*/
 
 function App() {
 
     const [showComponentOne, setShowComponentOne] = React.useState(false);
     const [showComponentTwo, setShowComponentTwo] = React.useState(false);
     const [showComponentThree, setShowComponentThree] = React.useState(false);
+
     const [currentComponent, setCurrentComponent] = React.useState(null);
 
     const handleButtonClick = (component) => {
         setShowComponentOne(component === 'componentOne');
         setShowComponentTwo(component === 'componentTwo');
-        setShowComponentThree(component === 'ComponentThree');
+        setShowComponentThree(component === 'componentThree');
         setCurrentComponent(component);
     }
 
@@ -22,12 +25,12 @@ function App() {
         setShowComponentOne(false);
         setShowComponentTwo(false);
         setShowComponentThree(false);
+
         setCurrentComponent(null);
     }
 
     return (
         <div className="App">
-
             <button className="button-common" onClick={() => handleButtonClick('componentOne')}>Mini Project One</button>
             <button className="button-common" onClick={() => handleButtonClick('componentTwo')}>Mini Project Two</button>
             <button className="button-common" onClick={() => handleButtonClick('componentThree')}>Mini Project Three</button>
